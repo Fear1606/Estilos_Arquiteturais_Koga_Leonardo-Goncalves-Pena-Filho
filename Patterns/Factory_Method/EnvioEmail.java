@@ -1,8 +1,8 @@
 package Patterns.Factory_Method;
 
-public class EnvioEmail implements IntNotificacoes{
+public class EnvioEmail implements IntNotificacoes {
     @Override
-    public void enviar() {
-        System.out.println("Enviando por Email");
+    public void enviarMensagem(String mensagem) {
+        System.out.println("Enviando E-mail: " + mensagem);
     }
 }

@@ -2,25 +2,21 @@ package Patterns.Abstract_Factory;
 
 public class Main {
     public static void main(String[] args) {
-        String tipo = "andr"; 
+        
+        // define a fábrica desejada (troque para FabricaIOS para mudar a interface)
+        Fabricas fabrica = new FabricaAndroid();
+        
+        renderizarAplicacao(fabrica);
+    }
 
-        if(tipo.equals("ios")){
-            Fabricas fabricaIOS = new FabricaIOS();
+    // fluxo principal (DIP): depende apenas da interface, eliminando os if/else
+    public static void renderizarAplicacao(Fabricas fabrica) {
+        
+        // renderiza os componentes sem precisar saber qual é o sistema operacional
+        Botao botao = fabrica.criarBotao();
+        Input input = fabrica.criarInput();
 
-            Botao btnIOS = fabricaIOS.criarBotao();
-            Input inputIOS = fabricaIOS.criarInput();
-
-            btnIOS.renderizarBotao();
-            inputIOS.renderizarInput();
-
-        }else if (tipo.equals("andr")){
-            Fabricas fabricaAndr = new FabricaAndroid();
-
-            Botao btnAndr = fabricaAndr.criarBotao();
-            Input inputAndr = fabricaAndr.criarInput();
-
-            btnAndr.renderizarBotao();
-            inputAndr.renderizarInput();
-        }
+        botao.renderizarBotao();
+        input.renderizarInput();
     }
 }

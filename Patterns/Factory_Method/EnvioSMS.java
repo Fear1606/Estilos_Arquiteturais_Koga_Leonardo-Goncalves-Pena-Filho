@@ -1,8 +1,8 @@
 package Patterns.Factory_Method;
 
-public class EnvioSMS implements IntNotificacoes{
+public class EnvioSMS implements IntNotificacoes {
     @Override
-    public void enviar() {
-        System.out.println("Enviando por SMS");
+    public void enviarMensagem(String mensagem) {
+        System.out.println("Enviando SMS: " + mensagem);
     }
 }
